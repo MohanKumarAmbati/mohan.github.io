@@ -1,0 +1,44 @@
+
+<div class="ubuntu-bg">
+  <div class="window">
+    <div class="window-header">
+      <span class="window-controls">
+        <span class="close"></span>
+        <span class="minimize"></span>
+        <span class="maximize"></span>
+      </span>
+      <span class="window-title">My Portfolio</span>
+    </div>
+    <div class="window-body">
+      <nav class="sidebar">
+        <ul>
+          <li [class.active]="selectedPage === 'about'" (click)="selectPage('about')">
+            <span class="icon">🏠</span> About
+          </li>
+          <li [class.active]="selectedPage === 'projects'" (click)="selectPage('projects')">
+            <span class="icon">💻</span> Projects
+          </li>
+          <li [class.active]="selectedPage === 'contact'" (click)="selectPage('contact')">
+            <span class="icon">✉️</span> Contact
+          </li>
+        </ul>
+      </nav>
+      <main class="content">
+        <ng-container [ngSwitch]="selectedPage">
+          <section *ngSwitchCase="'about'">
+            <h2>About Me</h2>
+            <p>Welcome to my Ubuntu-inspired portfolio!</p>
+          </section>
+          <section *ngSwitchCase="'projects'">
+            <h2>Projects</h2>
+            <p>Project showcase coming soon.</p>
+          </section>
+          <section *ngSwitchCase="'contact'">
+            <h2>Contact</h2>
+            <p>Contact details will be here.</p>
+          </section>
+        </ng-container>
+      </main>
+    </div>
+  </div>
+</div>
